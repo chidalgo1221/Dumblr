@@ -4,8 +4,7 @@ h1 {
 }
 
 body{
-  background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  background-color: bisque;
 }
 
 #dummy{
@@ -15,4 +14,25 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
 #space{
   margin: -50px 0 0 -50px;
   top: 50%;
+
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  font-family: arial;
+}
+.link:hover {
+  background-color: silver;
+}
+.link {
+  display:inline-block;
+  color:white;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+  float: left;
 }

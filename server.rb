@@ -35,17 +35,22 @@ get '/login' do
 end
 
 post '/login' do 
-user = User.find_by(username: params["username"], password: params["password"])
-if user
-  session[:user_id] = user.id
-  redirect '/homepage'
-else
-  redirect '/login'
-end
+  user = User.find_by(username: params["username"], password: params["password"])
+  if user
+    session[:user_id] = user.id
+    redirect '/homepage'
+  else
+    redirect '/login'
+  end
 end
 
 post '/signup' do
-people = User.create(first_name: params["first"], last_name: params["last"], email: params["email"], birthday: params["birthday"], username: params["username"], password: params["password"])
-session[:user_id] = people.id
-redirect '/homepage'
+  people = User.create(first_name: params["first"], last_name: params["last"], email: params["email"], birthday: params["birthday"], username: params["username"], password: params["password"])
+  session[:user_id] = people.id
+  redirect '/homepage'
+end
+
+get '/logout' do 
+  session[:user_id] = nil
+  redirect '/'
 end

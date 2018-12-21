@@ -9,7 +9,60 @@
         <center>
             <img id="dummy"src="https://vector.me/files/images/3/8/38058/for_dummies.png" width= "10%">
         </center>
-    </header>
-</body>
+        <ul class="nav">
+            <li><a href="homepage.erb" class="link">Home</a></li>
+            <li><a href="profile.erb" class="link">Profile</a></li>
+            <a class="btn btn-primary" href="logout">Logout</a>
 
+         </ul>
+    </header>
+    body {
+  font-family: "Lato", sans-serif;
+}
+<style>
+.sidenav d{
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav b {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidenav b:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav d {padding-top: 15px;}
+  .sidenav b {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+</body>
 </html>
