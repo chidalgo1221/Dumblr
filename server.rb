@@ -8,6 +8,7 @@ require 'active_record'
 #require model classes
 # require './models/cake.rb'
 require './models/user.rb'
+require './models/post.rb'
 # Use `binding.pry` anywhere in this script for easy debugging
 require 'pry'
 require 'csv'
@@ -24,6 +25,7 @@ ActiveRecord::Base.establish_connection(
   database: 'db/development.db'
 )
 end
+
 register Sinatra::Reloader
 enable :sessions
 
@@ -32,6 +34,7 @@ get '/' do
 end
 
 get '/homepage' do
+  @all_posts = Post.all
   erb :homepage
 end
 
@@ -58,4 +61,27 @@ end
 get '/logout' do 
   session[:user_id] = nil
   redirect '/'
+end
+
+get '/posts' do
+  erb :homepage
+end
+
+post '/posts' do
+  @new_post = Post.create(user_id: session[:user_id], post_text: params["post_text"])
+  redirect '/homepage'
+end
+
+get '/deactivate' do
+  erb :deactivate
+end
+
+get '/destroy' do
+  @user = User.find(session[:user_id])
+  @user.destroy
+  redirect '/'
+end
+
+get '/profile' do 
+  erb :profile
 end

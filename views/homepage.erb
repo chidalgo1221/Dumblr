@@ -9,61 +9,46 @@
         <center>
             <img id="dummy"src="https://vector.me/files/images/3/8/38058/for_dummies.png" width= "10%">
         </center>
-        <ul class="nav">
-            <li><a href="homepage.erb" class="link">Home</a></li>
-            <li><a href="profile.erb" class="link">Profile</a></li>
+        <ul class="navs">
+            <li><a href="/homepage" class="link">Home</a></li>
+            <li><a href="/profile" class="link">Profile</a></li>
             <a class="btn btn-primary" href="logout">Logout</a>
 
          </ul>
     </header>
-    body {
-  font-family: "Lato", sans-serif;
-}
+    <br>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+        <img class="icon"src="https://thefader-res.cloudinary.com/private_images/w_1440,c_limit,f_auto,q_auto:best/RUIZ_BadBunny_01_web_p5baep/shirt-vintage-necklace-and-sunglasses-bad-bunny-s-own.jpg">
+            <a class="nav-link active"  href="https://chidalgo1221.github.io/Bad-Bunny/">Bad Bunny</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://chidalgo1221.github.io/Pokedex/">Pokemon</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://chidalgo1221.github.io/Makeup-Side-Assignment/">Make-Up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/deactivate">Deactivate</a>
+        </li>
+    </ul>
+    <form method="POST" action="/posts">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea name="post_text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
 
-.sidenav d{
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
 
-.sidenav b {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  display: block;
-}
+    <% @all_posts.reverse_each do |posts| %>
+        <div class="card">
+            <h2><%= posts.user.first_name + " " + posts.user.last_name %></h2>
+            <p><%= posts.post_text %></p>
+        </div>
+    <% end %>
 
-.sidenav b:hover {
-  color: #f1f1f1;
-}
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
 
-@media screen and (max-height: 450px) {
-  .sidenav d {padding-top: 15px;}
-  .sidenav b {font-size: 18px;}
-}
-</style>
-</head>
-<body>
-
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</div>
-</body>
-
+    </body>
 </html>
