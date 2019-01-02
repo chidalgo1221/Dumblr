@@ -1,5 +1,5 @@
 # Run this script with `bundle exec ruby seeds.rb`
-require 'sqlite3'
+
 require 'active_record'
 
 #require model classes
